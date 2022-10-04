@@ -1,0 +1,38 @@
+.containerShelf {
+	padding: 0 40px;
+	@media (max-width: 40rem) {
+		padding: 0 10px;
+	}
+	margin-bottom: 40px;
+
+	.shelfTitle {
+		font-family: Blinker;
+		font-weight: 500;
+		@media (max-width: 40rem) {
+			font-size: 1.4rem;
+		}
+	}
+
+	.swiperContainer {
+		user-select: none;
+		.swiperContent {
+			border: 1px solid #919191;
+			padding: 20px;
+			border-radius: 8px;
+			picture {
+				img {
+					max-width: 100%;
+				}
+			}
+			h2 {
+				font-size: 1.5rem;
+			}
+			p {
+				font-size: 0.875rem;
+			}
+			button {
+				width: 100%;
+			}
+		}
+	}
+}
