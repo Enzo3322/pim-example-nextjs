@@ -1,6 +1,6 @@
 import { CarsShelf } from '../components/CarsShelf';
 import { cars } from '../mock/cars';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
 
 export default function Home() {
 	return (

@@ -1,0 +1,24 @@
+.formContainer {
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+	padding: 40px;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #999;
+	border-radius: 8px;
+	margin: 20px auto;
+	background-color: #fff;
+	@media (max-width: 40rem) {
+		margin: 20px;
+	}
+
+	> div {
+		margin-bottom: 15px;
+	}
+
+	button {
+		max-width: 223px;
+		width: 100%;
+	}
+}

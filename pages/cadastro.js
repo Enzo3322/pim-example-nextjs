@@ -1,4 +1,6 @@
+import { Button, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
+import styles from '../styles/commons.module.scss';
 
 export default function Cadastro() {
 	const [name, setName] = useState(null);
@@ -10,6 +12,7 @@ export default function Cadastro() {
 	}, [email, name, password]);
 
 	const validateEmail = (email) => {
+		// valida se o email possui @ e .com
 		if (email && email.includes('@') && email.includes('.com')) {
 			return true;
 		}
@@ -18,14 +21,17 @@ export default function Cadastro() {
 
 	const validateUserName = (fullName) => {
 		// o split valida se o nome é composto transformando a string em array ['primeironome', 'segundo nome']
-		const composeName = fullName.split(' ');
-		if (fullName && composeName[1]) {
-			return true;
+		if (fullName) {
+			const composeName = fullName.split(' ');
+			if (fullName && composeName[1]) {
+				return true;
+			}
 		}
 		return false;
 	};
 
 	const validatePass = (password) => {
+		// valida se foi inserido um password e se possui 6 ou mais caracteres
 		if (password && password.length >= 6) {
 			return true;
 		}
@@ -44,38 +50,43 @@ export default function Cadastro() {
 	};
 
 	return (
-		<>
-			<h1>Página de cadastro</h1>
-			<div>
-				<input
+		<div className={styles.main}>
+			<div className={styles.formContainer}>
+				<div>
+					<h1>Cadastro</h1>
+				</div>
+				<TextField
 					onChange={(e) => {
 						setName(e.target.value);
 					}}
-					type={'text'}
-					placeholder={'Nome Completo'}
+					label="Nome completo"
+					variant="outlined"
 				/>
-				<input
+				<TextField
 					onChange={(e) => {
 						setEmail(e.target.value);
 					}}
-					type={'email'}
-					placeholder={'exemplo@gmail.com'}
+					label="Email"
+					variant="outlined"
 				/>
-				<input
+				<TextField
 					onChange={(e) => {
 						setPassword(e.target.value);
 					}}
-					type={'password'}
-					placeholder={'Senha'}
+					label="Senha"
+					variant="outlined"
 				/>
-				<button
+
+				<Button
 					onClick={() => {
 						handleSubmit({ name, email, password });
 					}}
+					variant="contained"
+					size="large"
 				>
-					Cadastrar
-				</button>
+					ENVIAR
+				</Button>
 			</div>
-		</>
+		</div>
 	);
 }
